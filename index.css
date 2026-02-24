@@ -85,6 +85,11 @@ h1 {
     color: var(--deep-navy);
 }
 
+.highlight-gold {
+    color: var(--soft-gold);
+    font-weight: 600;
+}
+
 h2 {
     font-size: clamp(1.8rem, 3.5vw, 2.6rem);
     color: var(--deep-navy);
@@ -173,8 +178,8 @@ p+p {
     margin-top: 14px;
     font-family: var(--font-serif);
     font-style: italic;
-    font-size: 0.85rem;
-    color: var(--text-muted);
+    font-size: 0.95rem;
+    color: rgba(246, 243, 238, 0.55);
     letter-spacing: 0;
     text-transform: none;
 }
@@ -197,7 +202,7 @@ p+p {
     position: absolute;
     inset: 0;
     background: url('barcelona.png') center center / cover no-repeat;
-    opacity: 0.08;
+    opacity: 0.15;
     pointer-events: none;
 }
 
@@ -448,8 +453,8 @@ p+p {
 
 .step__title {
     font-family: var(--font-serif);
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1.25rem;
+    font-weight: 700;
     color: var(--deep-navy);
     margin-bottom: 10px;
     letter-spacing: 0;
@@ -663,8 +668,8 @@ p+p {
     content: '';
     position: absolute;
     inset: 0;
-    background: url('barcelona.png') center bottom / cover no-repeat;
-    opacity: 0.05;
+    background: url('barcelona-view.png') center center / cover no-repeat;
+    opacity: 0.1;
     pointer-events: none;
 }
 
@@ -700,8 +705,9 @@ p+p {
 .clarity__testimonial p {
     font-family: var(--font-serif);
     font-style: italic;
-    font-size: clamp(1.05rem, 1.2vw, 1.15rem);
-    color: rgba(246, 243, 238, 0.4);
+    font-size: clamp(1.1rem, 1.3vw, 1.25rem);
+    color: rgba(246, 243, 238, 0.6);
+    font-weight: 500;
     max-width: 400px;
 }
 
@@ -734,8 +740,8 @@ p+p {
 .reveal {
     opacity: 0;
     transform: translateY(24px);
-    transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: opacity 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .reveal--visible {
