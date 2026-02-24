@@ -1,0 +1,819 @@
+/* ============================================
+   SPAIN: THE ₹25L CONVERSATION
+   Editorial Design System — Polished
+   ============================================ */
+
+/* ── Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ── Design Tokens ── */
+:root {
+    /* Palette */
+    --deep-navy: #0E1A2B;
+    --warm-offwhite: #F6F3EE;
+    --muted-burgundy: #7A1E2C;
+    --soft-gold: #C8A45D;
+
+    /* Extended */
+    --text-primary: #0E1A2B;
+    --text-secondary: #4A5568;
+    --text-muted: #7A8599;
+    --divider: rgba(14, 26, 43, 0.1);
+    --navy-90: rgba(14, 26, 43, 0.9);
+
+    /* Typography */
+    --font-serif: 'Cormorant Garamond', 'Georgia', serif;
+    --font-sans: 'Inter', 'Helvetica Neue', sans-serif;
+
+    /* Spacing */
+    --section-pad-y: clamp(72px, 9vw, 120px);
+    --section-pad-x: clamp(24px, 6vw, 80px);
+    --content-max: 720px;
+}
+
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-sans);
+    background: var(--warm-offwhite);
+    color: var(--text-primary);
+    line-height: 1.7;
+    font-weight: 400;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ── Typography ── */
+h1,
+h2,
+h3 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    color: var(--deep-navy);
+}
+
+h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    color: var(--deep-navy);
+    margin-bottom: 36px;
+}
+
+h3 {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    color: var(--text-primary);
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+    color: var(--text-secondary);
+    max-width: 600px;
+}
+
+p+p {
+    margin-top: 14px;
+}
+
+/* ── Layout ── */
+.section {
+    padding: var(--section-pad-y) var(--section-pad-x);
+    position: relative;
+}
+
+.section__inner {
+    max-width: var(--content-max);
+    margin: 0 auto;
+}
+
+/* ── Divider ── */
+.divider {
+    width: 60px;
+    height: 1px;
+    background: var(--divider);
+    margin: 32px 0;
+}
+
+.divider--gold {
+    background: var(--soft-gold);
+    opacity: 0.6;
+}
+
+/* ── Buttons ── */
+.btn {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 16px 44px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+}
+
+.btn--primary {
+    background: var(--soft-gold);
+    color: var(--deep-navy);
+}
+
+.btn--primary:hover {
+    background: #D4B06A;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(200, 164, 93, 0.3);
+}
+
+.btn--outline {
+    background: transparent;
+    color: var(--soft-gold);
+    border: 1px solid var(--soft-gold);
+}
+
+.btn--outline:hover {
+    background: var(--soft-gold);
+    color: var(--deep-navy);
+}
+
+.btn__subtext {
+    display: block;
+    margin-top: 14px;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+/* ============================================
+   SECTION 1 — HERO (with Barcelona BG)
+   ============================================ */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: var(--deep-navy);
+    padding: var(--section-pad-y) var(--section-pad-x);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('barcelona.png') center center / cover no-repeat;
+    opacity: 0.08;
+    pointer-events: none;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(to top, var(--deep-navy), transparent);
+    pointer-events: none;
+}
+
+.hero__inner {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.hero__label {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--soft-gold);
+    opacity: 0.8;
+    margin-bottom: 40px;
+}
+
+.hero h1 {
+    color: var(--warm-offwhite);
+    margin-bottom: 24px;
+}
+
+.hero p {
+    color: rgba(246, 243, 238, 0.6);
+    font-size: clamp(1rem, 1.2vw, 1.1rem);
+    margin-bottom: 32px;
+    max-width: 520px;
+}
+
+.hero .btn {
+    margin-bottom: 0;
+}
+
+/* ── Credential Badge ── */
+.hero__credential {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.credential__badge {
+    font-family: var(--font-serif);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--soft-gold);
+    border: 1px solid rgba(200, 164, 93, 0.4);
+    padding: 4px 10px;
+    letter-spacing: 0.05em;
+}
+
+.credential__text {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    color: rgba(246, 243, 238, 0.5);
+    letter-spacing: 0.02em;
+}
+
+/* ============================================
+   SECTION 2 — CONFRONTING TRUTH
+   ============================================ */
+.truth {
+    background: var(--warm-offwhite);
+}
+
+.truth__list {
+    margin: 28px 0 32px;
+}
+
+.truth__list li {
+    font-family: var(--font-sans);
+    font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+    color: var(--text-secondary);
+    padding: 11px 0;
+    border-bottom: 1px solid var(--divider);
+}
+
+.truth__list li:last-child {
+    border-bottom: none;
+}
+
+.truth__closing {
+    margin-top: 32px;
+}
+
+.truth__closing p {
+    font-family: var(--font-serif);
+    font-size: clamp(1.1rem, 1.3vw, 1.25rem);
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.truth__closing p strong {
+    color: var(--muted-burgundy);
+}
+
+/* ============================================
+   SECTION 3 — AUTHORITY
+   ============================================ */
+.authority {
+    background: var(--deep-navy);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Geometric pattern for navy sections */
+.authority::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 400px;
+    background:
+        repeating-linear-gradient(45deg,
+            transparent,
+            transparent 40px,
+            rgba(200, 164, 93, 0.03) 40px,
+            rgba(200, 164, 93, 0.03) 41px);
+    pointer-events: none;
+}
+
+.authority h2 {
+    color: var(--warm-offwhite);
+}
+
+.authority__timeline {
+    margin: 32px 0;
+    padding-left: 24px;
+    border-left: 1px solid rgba(200, 164, 93, 0.25);
+}
+
+.authority__timeline li {
+    font-family: var(--font-sans);
+    font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+    color: rgba(246, 243, 238, 0.7);
+    padding: 12px 0;
+    position: relative;
+}
+
+.authority__timeline li::before {
+    content: '';
+    position: absolute;
+    left: -29px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--soft-gold);
+    opacity: 0.6;
+}
+
+.authority__closing {
+    margin-top: 32px;
+}
+
+.authority__closing p {
+    font-family: var(--font-sans);
+    font-style: normal;
+    font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+    color: rgba(246, 243, 238, 0.75);
+    line-height: 1.7;
+}
+
+.authority__closing p strong {
+    color: var(--warm-offwhite);
+    font-style: normal;
+    font-weight: 500;
+}
+
+.authority__linkedin {
+    margin-top: 32px;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: rgba(246, 243, 238, 0.7);
+}
+
+.authority__linkedin a {
+    color: var(--warm-offwhite);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.3s ease;
+}
+
+.authority__linkedin a:hover {
+    color: var(--soft-gold);
+}
+
+/* ============================================
+   HOW IT WORKS — 3-Step Strip
+   ============================================ */
+.how-it-works {
+    background: var(--warm-offwhite);
+    border-top: 1px solid var(--divider);
+    border-bottom: 1px solid var(--divider);
+}
+
+.how-it-works h2 {
+    text-align: center;
+}
+
+.steps {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
+    margin-top: 48px;
+}
+
+.step {
+    flex: 1;
+    max-width: 200px;
+    text-align: center;
+}
+
+.step__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--soft-gold);
+    border-radius: 50%;
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--soft-gold);
+    margin-bottom: 20px;
+}
+
+.step__title {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--deep-navy);
+    margin-bottom: 10px;
+    letter-spacing: 0;
+}
+
+.step__desc {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: none;
+}
+
+.step__connector {
+    width: 60px;
+    height: 1px;
+    background: var(--soft-gold);
+    opacity: 0.3;
+    margin-top: 20px;
+    flex-shrink: 0;
+}
+
+/* ============================================
+   WHO THIS IS FOR
+   ============================================ */
+.audience {
+    background: var(--deep-navy);
+    position: relative;
+    overflow: hidden;
+}
+
+.audience::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    background:
+        repeating-linear-gradient(-45deg,
+            transparent,
+            transparent 50px,
+            rgba(200, 164, 93, 0.025) 50px,
+            rgba(200, 164, 93, 0.025) 51px);
+    pointer-events: none;
+}
+
+.audience h2 {
+    color: var(--warm-offwhite);
+}
+
+.audience__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 40px;
+}
+
+.audience__col h3 {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.audience__col--for h3 {
+    color: var(--soft-gold);
+}
+
+.audience__col--not h3 {
+    color: rgba(246, 243, 238, 0.4);
+}
+
+.audience__col li {
+    font-family: var(--font-sans);
+    font-size: clamp(0.9rem, 1vw, 0.98rem);
+    color: rgba(246, 243, 238, 0.65);
+    padding: 9px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.audience__col--for li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--soft-gold);
+    opacity: 0.6;
+}
+
+.audience__col--not li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: rgba(246, 243, 238, 0.25);
+}
+
+.audience .btn--outline {
+    color: var(--soft-gold);
+    border-color: rgba(200, 164, 93, 0.4);
+}
+
+.audience .btn--outline:hover {
+    background: var(--soft-gold);
+    color: var(--deep-navy);
+    border-color: var(--soft-gold);
+}
+
+/* ============================================
+   PRICING
+   ============================================ */
+.session {
+    background: var(--warm-offwhite);
+}
+
+.pricing__card {
+    background: white;
+    border: 1px solid rgba(14, 26, 43, 0.08);
+    padding: 40px;
+    margin-top: 8px;
+    position: relative;
+}
+
+.pricing__card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--soft-gold), transparent);
+}
+
+.session__price {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 600;
+    color: var(--soft-gold);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.pricing__label {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+}
+
+.pricing__includes {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.session__grid {
+    margin: 16px 0 0;
+    display: grid;
+    gap: 0;
+}
+
+.session__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(14, 26, 43, 0.05);
+}
+
+.session__item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.session__number {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--soft-gold);
+    opacity: 0.5;
+    min-width: 24px;
+    line-height: 1.5;
+}
+
+.session__text {
+    font-family: var(--font-sans);
+    font-size: clamp(0.9rem, 1vw, 0.98rem);
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* ============================================
+   FINAL CTA — CLARITY
+   ============================================ */
+.clarity {
+    background: var(--deep-navy);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Barcelona image as subtle background */
+.clarity::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('barcelona.png') center bottom / cover no-repeat;
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+.clarity .section__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.clarity h2 {
+    color: var(--warm-offwhite);
+    max-width: 560px;
+}
+
+.clarity p {
+    color: rgba(246, 243, 238, 0.6);
+    text-align: center;
+    max-width: 480px;
+}
+
+.clarity .divider--gold {
+    margin: 32px auto;
+}
+
+.clarity__testimonial {
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(200, 164, 93, 0.15);
+}
+
+.clarity__testimonial p {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: clamp(1.05rem, 1.2vw, 1.15rem);
+    color: rgba(246, 243, 238, 0.4);
+    max-width: 400px;
+}
+
+.clarity .btn {
+    margin-top: 32px;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+    background: var(--deep-navy);
+    border-top: 1px solid rgba(246, 243, 238, 0.06);
+    padding: 36px var(--section-pad-x);
+    text-align: center;
+}
+
+.footer p {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: rgba(246, 243, 238, 0.25);
+    letter-spacing: 0.05em;
+    max-width: none;
+    text-align: center;
+}
+
+/* ============================================
+   SCROLL REVEAL ANIMATIONS
+   ============================================ */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal--visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal--delay-1 {
+    transition-delay: 0.1s;
+}
+
+.reveal--delay-2 {
+    transition-delay: 0.2s;
+}
+
+.reveal--delay-3 {
+    transition-delay: 0.3s;
+}
+
+.reveal--delay-4 {
+    transition-delay: 0.4s;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    .audience__grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .hero {
+        min-height: auto;
+        padding-top: 100px;
+        padding-bottom: 80px;
+    }
+
+    .btn {
+        padding: 14px 32px;
+        font-size: 0.78rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .steps {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
+
+    .step {
+        max-width: 280px;
+    }
+
+    .step__connector {
+        width: 1px;
+        height: 32px;
+        margin: 0;
+    }
+
+    .pricing__card {
+        padding: 28px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --section-pad-x: 20px;
+        --section-pad-y: clamp(56px, 8vw, 80px);
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+        margin-bottom: 28px;
+    }
+}
